@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>First Flast App</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"><!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script><!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="col-md-6 col-md-offset-3">
+<h1 style="background-color:powderblue;">homepage loading from templates {{username}}</h1>
+<!--    <a href="home.html">Home</a>-->
+<!--    <a href="info.html">Summary</a>-->
+<!--    <a href="contact.html">Contact</a>-->
+<form method="post" action="/">
+    <input type="text" name="city" placeholder="Enter City Name">
+    <button type="submit">SEARCH</button>
+</form>
+</div>
+    {% if weatherinfo.status == 200 %}
+<div class="col-md-6 col-md-offset-3">
+    <h3 style="background-color:tomato;">|||| WEATHER DATA |||| </h3>
+    <h3 style="color:red;">Temperature = {{weatherinfo.temp}}</h3>
+    <h3 style ="color:orange;">longitude = {{weatherinfo.lon}}</h3>
+    <h3 style="color:green;">latitude = {{weatherinfo.lat}}</h3>
+    <h3 style="color:blue;">cityname = {{weatherinfo.name}}</h3>
+    <h3 style="color:black;">sunrise = {{weatherinfo.sunrise_epoch}}</h3>
+    <h3 style="color:grey;">sunset = {{weatherinfo.sunset_epoch}}</h3>
+    <h3 style="background-color:tomato;">|||| INFORMATION DISPLAYED |||| </h3>
+    {% elif weatherinfo.status == 404 %}
+    <h3 style="text-align:center;" align="center">OOPS! City Not Found, Try Again</h3>
+    {% elif weatherinfo.status == 400 %}
+    <h3 style="text-align:center;" align="center">Enter a City Name</h3>
+    {% else %}
+    <h3>welcome</h3>
+    {% endif %}
+</div>
+</body>
+</html>
