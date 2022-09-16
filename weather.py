@@ -55,7 +55,7 @@ def weather_home_page():
         data = None
         return render_template("home.html",weatherinfo=data)
 
-app.run(port=5001)
+app.run(port=5000)
 
 # http://api.openweathermap.org/data/2.5/weather?q=bangalore&appid=997ea79e1c9575bd4f087cf90e68205d
 # "http://api.openweathermap.org/data/2.5/weather?q="+city+"&appid"=997ea79e1c9575bd4f087cf90e68205d
